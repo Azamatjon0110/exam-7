@@ -1,12 +1,10 @@
 import { Link } from '@mui/material';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import { Img, Text, TextBox, Title, Wrapper } from './CardAll.style';
 
 export const CardAll = ({ item }) => {
-	const state = useSelector((state) => state);
-	const theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	return (
 		<Link
 			sx={{ textDecoration: 'none', color: '#000' }}

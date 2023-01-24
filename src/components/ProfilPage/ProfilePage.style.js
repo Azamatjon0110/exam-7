@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import LabelBg from '../../assets/images/label.svg';
 import Camera from '../../assets/images/bi_camera.svg';
 
 export const Img = styled.img`

@@ -43,8 +43,7 @@ export const Books = () => {
 	};
 	const lang = state.lang.lang;
 	const user = state.user.user;
-	const theme = state.theme.theme;
-
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	const getGenre = () => {
 		axios
 			.get('http://localhost:5000/genre')
@@ -73,7 +72,6 @@ export const Books = () => {
 		getBook();
 	}, []);
 
-	// console.log(book);
 	return (
 		<Box
 			sx={{
@@ -105,7 +103,7 @@ export const Books = () => {
 				</Link>
 				<Box sx={{ display: 'flex', alignItems: 'center' }}>
 					<NavLink
-						style={(isActive) => ({
+						style={() => ({
 							marginRight: '42px',
 							fontSize: '16px',
 							lineHeight: '144.4%',
@@ -291,7 +289,7 @@ export const Books = () => {
 									paddingTop: '0',
 									paddingBottom: '0',
 									padding: '12px 27px',
-									backgroundColor: theme ? '#404040' : '#F5F5F5',
+									backgroundColor: theme === true ? '#404040' : '#F5F5F5',
 									color: theme ? '#fff' : '#000',
 									borderRadius: '15px',
 								}}
@@ -340,7 +338,6 @@ export const Books = () => {
 									: 'rgba(13, 13, 13, 0.6)',
 								textDecoration: 'none',
 							}}
-							// param={item.id}
 							key={item.id}
 						>
 							{item.name}
@@ -358,7 +355,7 @@ export const Books = () => {
 				}}
 			>
 				{book.map((item) => (
-					<SingleCard item={item} />
+					<SingleCard key={item.id} item={item} />
 				))}
 			</Box>
 		</Box>

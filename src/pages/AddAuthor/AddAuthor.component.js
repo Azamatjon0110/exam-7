@@ -26,6 +26,8 @@ export const AddAuthor = () => {
 		},
 	});
 	const lang = state.lang.lang;
+
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	const Token = state.token.token;
 	const [genre, setGenre] = useState([]);
 	const error = () =>
@@ -85,11 +87,11 @@ export const AddAuthor = () => {
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'center',
-						bgcolor: '#F4F4F4',
+						bgcolor: theme ? '#1b1b1b' : '#F4F4F4',
 						height: '109vh',
 					}}
 				>
-					<Label>
+					<Label variant={theme}>
 						<TextField
 							className='visually-hidden'
 							type='file'
@@ -130,7 +132,7 @@ export const AddAuthor = () => {
 						width: '50vw',
 						height: '100%',
 						padding: '48px 123px',
-						bgcolor: '#fff',
+						bgcolor: theme ? '#191919' : '#fff',
 					}}
 				>
 					<Box sx={{ width: '100%', maxWidth: '430px', marginX: 'auto' }}>
@@ -140,36 +142,44 @@ export const AddAuthor = () => {
 								fontWeight: 600,
 								fontSize: '32px',
 								lineHeight: '48px',
-								color: '#000000',
+								color: theme ? '#fff' : '#000000',
 							}}
 						>
 							{Language[lang].author.title}
 						</Typography>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].author.authName}
 							{...register('first_name', { required: 'true' })}
 						/>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].author.authSurname}
 							{...register('last_name', { required: 'true' })}
 						/>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].author.birthDate}
 							{...register('date_of_birth', { required: 'true' })}
 							type='number'
 						/>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].author.deathDate}
 							{...register('date_of_death')}
 							type='number'
 						/>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].author.country}
 							{...register('country', { required: 'true' })}
 						/>
-						<Select {...register('genre_id', { required: 'true' })}>
+						<Select
+							variant={theme}
+							{...register('genre_id', { required: 'true' })}
+						>
 							{genre.map((item) => (
-								<Option value={item.id} key={item.id}>
+								<Option variant={theme} value={item.id} key={item.id}>
 									{item.name}
 								</Option>
 							))}
@@ -183,17 +193,19 @@ export const AddAuthor = () => {
 								border: ' 1px solid #B4B4BB',
 								borderRadius: ' 10px',
 							}}
+							variant={theme}
 							placeholder={Language[lang].author.bio}
 						/>
 						<ButtonBase
+							variant={theme}
 							sx={{
 								width: '100%',
 								padding: '5px 20px',
 								fontWeight: 500,
 								fontSize: '18px',
 								lineHeight: '36px',
-								color: '#fff',
-								bgcolor: ' #152540',
+								color: theme ? ' #152540' : '#fff',
+								bgcolor: theme ? '#fff' : ' #152540',
 								borderRadius: '99px',
 							}}
 							type='submit'

@@ -6,7 +6,12 @@ export const Label = styled.label`
 	display: inline-block;
 	width: 315px;
 	height: 428px;
-	border: 1px dashed rgba(0, 0, 0, 0.3);
+	background-color: ${(color) => (color.variant ? ' #4D4D4D' : '#F8F8F8')};
+	border: ${(color) =>
+		color.variant
+			? '1px dashed rgba(255, 255, 255, 0.3)'
+			: '1px dashed rgba(0, 0, 0, 0.3);'};
+
 	border-radius: 17px;
 `;
 export const Wrap = styled.div`
@@ -47,7 +52,7 @@ export const AddBookGenre = styled.select`
 	border: 1px solid #b4b4bb;
 	background-color: transparent;
 	cursor: pointer;
-	color: #000;
+	color: ${(color) => (color.variant ? '#fff' : '#000')};
 	appearance: none;
 	border-radius: 10px;
 	background-image: url(${Arr});
@@ -75,6 +80,7 @@ export const InputBase = styled.input`
 	line-height: 21px;
 	border: 1px solid #b4b4bb;
 	border-radius: 10px;
+	background-color: ${(color) => (color.variant ? '#191919' : '#fff')};
 	&::placeholder {
 		font-size: 14px;
 		line-height: 21px;
@@ -109,9 +115,10 @@ export const TextArea = styled.textarea`
 	border: 1px solid #b4b4bb;
 	border-radius: 10px;
 	resize: none;
+	background-color: ${(color) => (color.variant ? '#191919' : '#fff')};
 	&::placeholder {
 		font-size: 14px;
 		line-height: 21px;
-		color: #aaaaaa;
+		color: ${(color) => (color.variant ? '#fff' : '#000')};
 	}
 `;

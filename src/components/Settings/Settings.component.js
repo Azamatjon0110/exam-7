@@ -24,15 +24,18 @@ import { getTheme } from '../../redux/theme/themeAction';
 export const Settings = () => {
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state);
+
+	const tema = JSON.parse(localStorage.getItem('theme'));
 	const { register, handleSubmit } = useForm();
 
 	const changeLanguage = (data) => {
 		console.log(data.theme);
 		dispatch(getLang(data.language));
 		localStorage.setItem('lang', data.language);
-		dispatch(getTheme(data.theme));
-		localStorage.setItem('theme', data.theme);
+		localStorage.setItem('theme', JSON.stringify(data.theme));
+		dispatch(getTheme(tema));
 	};
+
 	const lang = state.lang.lang;
 	const theme = state.theme.theme;
 

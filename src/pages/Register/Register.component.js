@@ -25,7 +25,7 @@ export const Register = () => {
 
 	const dispatch = useDispatch();
 	const lang = state.lang.lang;
-	const theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	const navigate = useNavigate();
 	const { reset, handleSubmit, success, register } = useForm({
 		first_name: '',

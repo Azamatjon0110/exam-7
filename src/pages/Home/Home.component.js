@@ -12,18 +12,13 @@ import { BtnBase, Wrap } from './Home.style';
 
 export const Home = () => {
 	const state = useSelector((state) => state);
-	// const navigate = useNavigate();
-	// const Token = state.token.token;
-	// if (!Token) {
-	// 	navigate('/login');
-	// }
 
 	const { register, handleSubmit } = useForm();
 
 	const [genre, setGenre] = useState([]);
 	const [auth, setAuth] = useState([]);
 	let lang = state.lang.lang;
-	let theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 
 	const search = (data) => {
 		const formData = new FormData();

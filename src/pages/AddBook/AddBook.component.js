@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 
 export const AddBook = () => {
 	const state = useSelector((state) => state);
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	const lang = state.lang.lang;
 	const Token = state.token.token;
 	const [genre, setGenre] = useState([]);
@@ -51,7 +52,9 @@ export const AddBook = () => {
 					Authorization: Token,
 				},
 			})
-			.then((res) => console.log(res))
+			.then((res) => {
+				reset();
+			})
 			.catch((err) => console.log(err));
 	};
 
@@ -83,11 +86,11 @@ export const AddBook = () => {
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'center',
-						bgcolor: '#F4F4F4',
+						bgcolor: theme ? '#1B1B1B' : '#F4F4F4',
 						height: '109vh',
 					}}
 				>
-					<Label>
+					<Label variant={theme}>
 						<TextField
 							className='visually-hidden'
 							type='file'
@@ -128,7 +131,7 @@ export const AddBook = () => {
 						width: '50vw',
 						height: '100%',
 						padding: '48px 123px',
-						bgcolor: '#fff',
+						bgcolor: theme ? '#1B1B1B' : '#fff',
 					}}
 				>
 					<Box sx={{ width: '100%', maxWidth: '430px', marginX: 'auto' }}>
@@ -138,26 +141,30 @@ export const AddBook = () => {
 								fontWeight: 600,
 								fontSize: '32px',
 								lineHeight: '48px',
-								color: '#000000',
+								color: theme ? '#fff' : '#000000',
 							}}
 						>
 							{Language[lang].book.title}
 						</Typography>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].book.name}
 							{...register('title', { required: 'true' })}
 						/>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].book.pages}
 							type='number'
 							{...register('page', { required: 'true' })}
 						/>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].book.Year}
 							type='number'
 							{...register('year', { required: 'true' })}
 						/>
 						<InputBase
+							variant={theme}
 							placeholder={Language[lang].book.Price}
 							type='number'
 							{...register('price', { required: 'true' })}
@@ -188,6 +195,7 @@ export const AddBook = () => {
 						</AddBookGenre>
 
 						<TextArea
+							variant={theme}
 							sx={{
 								width: '100%',
 								marginBottom: '44px',
@@ -199,14 +207,15 @@ export const AddBook = () => {
 							{...register('description', { required: 'true' })}
 						/>
 						<ButtonBase
+							variant={theme}
 							sx={{
 								width: '100%',
 								padding: '5px 20px',
 								fontWeight: 500,
 								fontSize: '18px',
 								lineHeight: '36px',
-								color: '#fff',
-								bgcolor: ' #152540',
+								color: theme ? '#152540' : '#fff',
+								bgcolor: theme ? '#fff' : '#152540',
 								borderRadius: '99px',
 							}}
 							type='submit'

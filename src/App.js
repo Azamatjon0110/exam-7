@@ -10,12 +10,12 @@ import { Profil } from './pages/Profil/Profil.component';
 import { Register } from './pages/Register/Register.component';
 import { Books } from './pages/Books/Books.component';
 import { SingleBook } from './pages/SinglePageBook/SingleBook.component';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 function App() {
-	const navigate = useNavigate();
-	const state = useSelector((state) => state);
-	const Token = state.token.token;
+	// const navigate = useNavigate();
+	// const state = useSelector((state) => state);
+	// const Token = state.token.token;
 	// if (Token) {
 	// 	navigate('/');
 	// } else {

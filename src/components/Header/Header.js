@@ -36,7 +36,7 @@ export const Header = () => {
 	const Token = state.token.token;
 	const lang = state.lang.lang;
 	const user = state.user.user;
-	const theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 
 	useEffect(() => {
 		axios

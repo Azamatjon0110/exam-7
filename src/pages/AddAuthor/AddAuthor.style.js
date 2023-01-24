@@ -8,6 +8,7 @@ export const Label = styled.label`
 	height: 428px;
 	border: 1px dashed rgba(0, 0, 0, 0.3);
 	border-radius: 17px;
+	background-color: ${(color) => (color.variant ? '#4D4D4D' : '#F4F4F4')};
 `;
 export const Wrap = styled.div`
 	position: absolute;
@@ -30,6 +31,8 @@ export const Select = styled.select`
 	line-height: 21px;
 	border: 1px solid #b4b4bb;
 	border-radius: 10px;
+	color: ${(color) => (color.variant ? '#fff' : '#000')};
+	background-color: ${(color) => (color.variant ? '#191919' : '#fff')};
 	appearance: none;
 	background-image: url(${Arr});
 	background-position: center right 26px;
@@ -49,6 +52,7 @@ export const InputBase = styled.input`
 	line-height: 21px;
 	border: 1px solid #b4b4bb;
 	border-radius: 10px;
+	background-color: ${(color) => (color.variant ? '#191919' : '#fff')};
 	&::placeholder {
 		font-size: 14px;
 		line-height: 21px;
@@ -83,6 +87,7 @@ export const TextArea = styled.textarea`
 	border: 1px solid #b4b4bb;
 	border-radius: 10px;
 	resize: none;
+	background-color: ${(color) => (color.variant ? '#191919' : '#fff')};
 	&::placeholder {
 		font-size: 14px;
 		line-height: 21px;

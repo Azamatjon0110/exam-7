@@ -12,7 +12,7 @@ export const CardBook = ({ item }) => {
 	const authorId = item.author_id;
 	const [auth, setAuth] = useState({});
 	const token = state.token.token;
-	const theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 
 	useEffect(() => {
 		axios

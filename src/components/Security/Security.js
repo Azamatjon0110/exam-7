@@ -15,7 +15,7 @@ import { useForm } from 'react-hook-form';
 
 export const Security = () => {
 	const state = useSelector((state) => state);
-	const theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	const lang = state.lang.lang;
 	const token = state.token.token;
 	const { register, handleSubmit } = useForm();

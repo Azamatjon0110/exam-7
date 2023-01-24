@@ -41,7 +41,7 @@ export const SingleBook = () => {
 	const [data, setData] = useState({});
 	const [books, setBooks] = useState([]);
 	const lang = state.lang.lang;
-	const theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	const Token = state.token.token;
 
 	const user = state.user.user;

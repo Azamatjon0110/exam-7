@@ -34,7 +34,7 @@ export const Login = () => {
 			theme: 'light',
 		});
 	const lang = state.lang.lang;
-	const theme = state.theme.theme;
+	const theme = JSON.parse(localStorage.getItem('theme'));
 	const { reset, handleSubmit, success, register } = useForm({
 		defaultValues: {
 			email: '',
