@@ -1,0 +1,18 @@
+.slick-dots {
+	top: 246px;
+	left: 86px;
+	text-align: left;
+}
+.slick-dots li {
+	width: 50px;
+}
+
+.slick-dots li button:before {
+	display: block;
+	margin-right: 7px;
+	width: 50px;
+	height: 3px;
+	background: #ffffff;
+	border-radius: 10px;
+	content: '';
+}
